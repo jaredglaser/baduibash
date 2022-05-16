@@ -44,7 +44,7 @@
                         <br />
                         <br />
                         <label for="phone">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" value="111-222-3333"
+                        <input type="tel" id="phone" name="phone" 
                             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
                     </div>
                     <div id="resume-address">
@@ -100,11 +100,18 @@
         <div id="resume-box">
             <div id="slider">
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                     <input type="range" min=0 max=9999999999 step="1" onchange="showValue(this.value)" class="slider" id="myRange">
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function showValue(newValue)
+        {
+        document.getElementById("phone").value=newValue;
+        console.log(newValue)
+        }
+    </script>
 
 </body>
 
