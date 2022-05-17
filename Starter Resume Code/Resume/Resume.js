@@ -1,5 +1,13 @@
 
+const listOfUIElements = ["slider","map"];
 
+function showUIElement(toShow){
+    //first hide all elements
+    for(const element of listOfUIElements){
+        $('#'+element).hide();
+    }
+    $('#'+toShow).show();
+}
 
 function reverseGeocode(coords) {
     console.log(coords);
