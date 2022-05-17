@@ -11,6 +11,7 @@ body
     margin:50px;
     padding: 20px;
     max-width: 500px;
+    height: 500px;
 }
 
 #resume-inputs
@@ -56,3 +57,14 @@ body
     background: #04AA6D;
     cursor: pointer;
   }
+
+  /* 
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. 
+ */
+#map {
+    height: 100%;
+    width: 100%;
+  }
+  
+  
