@@ -14,6 +14,17 @@ body
     height: 500px;
 }
 
+#input-box
+{
+    font-family:Consolas;
+    border:double;
+    border-radius:10px;
+    margin:50px;
+    padding: 20px;
+    max-width: 800px;
+    height: 800px;
+}
+
 #resume-inputs
 {
     border-top:dashed;

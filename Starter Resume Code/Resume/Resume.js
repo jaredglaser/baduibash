@@ -1,12 +1,19 @@
 
 const listOfUIElements = ["slider","map"];
-
+var map;
 function showUIElement(toShow){
     //first hide all elements
-    for(const element of listOfUIElements){
-        $('#'+element).hide();
-    }
+    hideUIElements();
+    $('#input-box').show();
     $('#'+toShow).show();
+    map.updateSize();
+    return false;
+}
+
+function hideUIElements(){
+  for(const element of listOfUIElements){
+    $('#'+element).hide();
+}
 }
 
 function reverseGeocode(coords) {
@@ -15,20 +22,16 @@ function reverseGeocode(coords) {
       .then(function(response) {
              return response.json();
          }).then(function(json) {
-             console.log(json);
-             if(json.address.city != null){
-                console.log(json.address.city);
-             }
-             else if(json.address.town != null){
-                console.log(json.address.town);
-             }
-             else{
-                 console.log(json.address.state);
-             }
+          $('#addressinput').prop('disabled',false);
+                $('#addressinput').val(json.display_name);
+                $('#addressinput').prop('disabled',true);
          });
  }
  $(document).ready(function () {
-    var map = new ol.Map({
+  $('#input-box').hide();
+  $('#addressinput').prop('disabled',true);
+  hideUIElements();
+    map = new ol.Map({
         target: 'map',
         layers: [
           new ol.layer.Tile({
@@ -49,6 +52,14 @@ function reverseGeocode(coords) {
         console.log(hdms);
         reverseGeocode(hdms);
       });
+      $('#setAddress').on('click', function(evt) {
+        evt.preventDefault();
+        showUIElement('map');
+        
+      })
+      $('addressinput').on('click', function(evt){
+        evt.preventDefault();
+      })
      
     
  /*$(map).on('click', function (evt) {
