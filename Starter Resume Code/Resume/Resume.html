@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <div style="display: table-row; height: 100px;">
+    <div style="display: table-row; height: auto; width: 100%;">
         <div style="width: 50%; display: table-cell;">
             <form id="resume-box" action="Submission.html">
                 <div id="resume-title">
@@ -34,30 +34,30 @@
                     <div id="resume-name">
                         <br />
                         <label for="first-name">First Name:</label>
-                        <input type="text" id="first-name" name="first-name" />
+                        <input type="text" id="first-name" name="first-name" onclick="toggle_visibility('resume-name-box');"/>
                         <br />
                         <br />
                         <label for="last-name">Last Name:</label>
-                        <input type="text" id="last-name" name="last-name" />
+                        <input type="text" id="last-name" name="last-name" onclick="toggle_visibility('resume-name-box');"/>
                     </div>
                     <div id="resume-dob">
                         <br />
                         <br />
                         <label for="date">Date of Birth:</label>
-                        <input type="date" id="date" name="date" />
+                        <input type="date" id="date" name="date" onclick="toggle_visibility('resume-dob-box');"/>
                     </div>
                     <div id="resume-email">
                         <br />
                         <br />
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" />
+                        <input type="email" id="email" name="email" onclick="toggle_visibility('resume-email-box');" />
                     </div>
                     <div id="resume-phone">
                         <br />
                         <br />
                         <label for="phone">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" value="111-222-3333"
-                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+                        <input type="tel" id="phone" name="phone" value=""
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onclick="toggle_visibility('resume-phone-box');"/>
                     </div>
                     <div id="resume-address">
                         <br />
@@ -74,7 +74,7 @@
                         <br />
                         <label for="job-title">Job Title:</label>
                         <br />
-                        <input type="text" id="job-title" name="job-title" />
+                        <input type="text" id="job-title" name="job-title" onclick="toggle_visibility('resume-job-box');"/>
                         <br />
                         <label for="company-name">Company Name:</label>
                         <br />
@@ -103,8 +103,13 @@
                             <br />
                             <input id="submit" type="submit" value="Submit" />
                         </div>
-
+                    </div>
+                </div>
             </form>
+            
+            
+
+
         </div>
         
     </div>
@@ -114,6 +119,29 @@
             <div id="slider">
                 <div class="slidecontainer">
                     <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+
+        <div id="resume-name-box" style="width: 50%;  display: table-cell;  vertical-align: top;">'
+            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+                First and Last Name
+            </div>
+        </div>
+        <div id="resume-dob-box" style="width: 50%;  display: none;  vertical-align: top;">'
+            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+                date of birth
+            </div>
+        </div>
+        <div id="resume-email-box" style="width: 50%;  display: none;  vertical-align: top;">'
+            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+                Email
+            </div>
+        </div>
+        <div id="resume-phone-box" style="width: 50%;  display: none;  vertical-align: top;">'
+            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+                <div id="slider">
+                    Use the slider to enter your phone number:
+                    <div class="slidecontainer">
+                        <input style="direction: rtl;" type="range" min=0 max=9999999999 step="1" onchange="showValue(this.value)" class="slider" id="myRange">
+                    </div>
                 </div>
             </div>
     <div id="map" class="map"></div>
@@ -122,9 +150,89 @@
             
             </div>
         </div>
+        <div id="map-box" style="width: 50%;  display: none;  vertical-align: top;">'
+            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+                <div id="map" class="map"></div>
+            </div>
+        </div>
+        <div id="resume-job-box" style="width: 50%;  display: none;  vertical-align: top;">'
+            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%; display: table;">
+                Select your job from below:
+                <div style="display: table-row; vertical-align: top;">
+                    <div style="display: table-cell; height: 100px;">
+                        <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115397.gif" width="150px" onclick="changeJobTitle('Painter')"/>
+                    </div>
+                    <div style="display: table-cell; height: 100px;">
+                        <img style="display:table-cell;" src="http://clipart-library.com/data_images/115433.png" width="150px" onclick="changeJobTitle('Chef')"/>
+                    </div>
+                    <div style="display: table-cell; height: 100px;">
+                        <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115434.png" width="150px" onclick="changeJobTitle('Doctor')"/>
+                    </div>
+                </div>
+                <div style="display: table-row; vertical-align: top;">
+                    <div style="display: table-cell; height: 100px;">
+                        <img style="display:table-cell;" src="http://clipart-library.com/data_images/115458.jpg" width="150px" onclick="changeJobTitle('Fire Fighter')"/>
+                    </div>
+                    <div style="display: table-cell; height: 100px;">
+                        <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115477.png" width="150px" onclick="changeJobTitle('A Dog')"/>
+                    </div>
+                    <div style="display: table-cell; height: 100px;">
+                        <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115497.gif" width="150px" onclick="changeJobTitle('Plumber')" />
+                    </div>
+                </div>
+                <div style="display: table-row; vertical-align: top;">
+                    <div style="display: table-cell; height: 100px;">
+                        <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115525.png" width="150px" onclick="changeJobTitle('Janitor')"/>
+                    </div>
+                    <div style="display: table-cell; height: 100px;">
+                        <img style="display:table-cell;" src="http://clipart-library.com/data_images/115512.gif" width="150px" onclick="changeJobTitle('Crossing Guard')"/>
+                    </div>
+                    <div style="display: table-cell; height: 100px;">
+                        <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115509.png" width="150px" onclick="changeJobTitle('Farmer')"/>
+                    </div>
+                </div>
+                <div style="display: table-row; vertical-align: top;">
+                    <div style="display: table-cell; height: 100px;">
+                        <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115522.jpg" width="150px" onclick="changeJobTitle('Lumberjack')"/>
+                    </div>
+                    <div style="display: table-cell; height: 100px;">
+                        <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115472.gif" width="150px" onclick="changeJobTitle('Investor')"/>
+                    </div>
+                    <div style="display: table-cell; height: 100px;">
+                        <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/111492.png" width="150px" onclick="changeJobTitle('Unemployed')"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 
 </body>
 
+<script type="text/javascript">
+
+    var currentID = 'resume-name-box';
+
+    function toggle_visibility(id) {
+        document.getElementById(currentID).style.display = 'none';
+        currentID = id;
+        var e = document.getElementById(id);
+        if (e.style.display == 'table-cell')
+            e.style.display = 'none';
+        else
+            e.style.display = 'table-cell';
+    }
+
+    function showValue(newValue) {
+        newValue = newValue.padStart(10, "0");
+        newValue = "(" + newValue.slice(0,3) +  ") " + newValue.slice(3, 6) + "-" + newValue.slice(6,10);
+        document.getElementById("phone").value = newValue;
+    }
+
+    function changeJobTitle(job) {
+        document.getElementById("job-title").value = job;
+    }
+
+</script>
 
 </html>
