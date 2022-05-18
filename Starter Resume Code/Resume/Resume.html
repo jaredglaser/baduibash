@@ -6,10 +6,22 @@
     <title>Bad Resume Entry</title>
     <meta name="description" content="Project about a resume entry form with horrible UI">
     <link rel="stylesheet" href="Resume.css?v=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+
+<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="Resume.js"></script>
 </head>
 
 <body>
-    <div style="display: table-row; height: 100px;">
+    <div style="display: table-row; height: auto; width: 100%;">
         <div style="width: 50%; display: table-cell;">
             <form id="resume-box" action="Submission.html">
                 <div id="resume-title">
@@ -22,7 +34,7 @@
                     <div id="resume-name">
                         <br />
                         <label for="first-name">First Name:</label>
-                        <input type="text" id="first-name" name="first-name" />
+                        <input type="text" id="first-name" name="first-name" onclick="toggle_visibility('resume-name-box');"/>
                         <br />
                         <br />
                         <label for="last-name">Last Name:</label>
@@ -32,26 +44,27 @@
                         <br />
                         <br />
                         <label for="date">Date of Birth:</label>
-                        <input type="date" id="date" name="date" />
+                        <input type="date" id="date" name="date" onclick="toggle_visibility('resume-dob-box');"/>
                     </div>
                     <div id="resume-email">
                         <br />
                         <br />
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" />
+                        <input type="email" id="email" name="email" onclick="toggle_visibility('resume-email-box');" />
                     </div>
                     <div id="resume-phone">
                         <br />
                         <br />
                         <label for="phone">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" 
-                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+                        <input type="tel" id="phone" name="phone" value=""
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onclick="toggle_visibility('resume-phone-box');"/>
                     </div>
                     <div id="resume-address">
                         <br />
                         <br />
                         <label for="address">Address:</label>
-                        <input type="text" id="address" name="address" />
+                        <input type="text" id="address" name="address" onclick="toggle_visibility('map-box');"  />
+                        <button type="button" id="btn" >Click me :) </button>
                     </div>
                     <br />
                     <div id="resume-inputs">
@@ -90,29 +103,70 @@
                             <br />
                             <input id="submit" type="submit" value="Submit" />
                         </div>
-
+                    </div>
+                </div>
             </form>
+            
+            
+
+
         </div>
-        <script src="Resume.js"></script>
-    </div>
-    </div>
-    <div style="width: 50%; display: table-cell;">'
-        <div id="resume-box">
-            <div id="slider">
-                <div class="slidecontainer">
-                     <input type="range" min=0 max=9999999999 step="1" onchange="showValue(this.value)" class="slider" id="myRange">
+
+        <div id="resume-name-box" style="width: 50%;  display: table-cell;  vertical-align: top;">'
+            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+                First and Last Name
+            </div>
+        </div>
+        <div id="resume-dob-box" style="width: 50%;  display: none;  vertical-align: top;">'
+            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+                date of birth
+            </div>
+        </div>
+        <div id="resume-email-box" style="width: 50%;  display: none;  vertical-align: top;">'
+            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+                Email
+            </div>
+        </div>
+        <div id="resume-phone-box" style="width: 50%;  display: none;  vertical-align: top;">'
+            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+                <div id="slider">
+                    Use the slider to enter your phone number:
+                    <div class="slidecontainer">
+                        <input style="direction: rtl;" type="range" min=0 max=9999999999 step="1" onchange="showValue(this.value)" class="slider" id="myRange">
+                    </div>
                 </div>
             </div>
         </div>
+        <div id="map-box" style="width: 50%;  display: none;  vertical-align: top;">'
+            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+                <div id="map" class="map"></div>
+            </div>
+        </div>
+        
     </div>
-    <script>
-        function showValue(newValue)
-        {
-        document.getElementById("phone").value=newValue;
-        console.log(newValue)
-        }
-    </script>
 
 </body>
+
+<script type="text/javascript">
+
+    var currentID = 'resume-name-box';
+
+    function toggle_visibility(id) {
+        document.getElementById(currentID).style.display = 'none';
+        currentID = id;
+        var e = document.getElementById(id);
+        if (e.style.display == 'table-cell')
+            e.style.display = 'none';
+        else
+            e.style.display = 'table-cell';
+    }
+
+    function showValue(newValue) {
+        newValue = newValue.padStart(10, "0");
+        newValue = "(" + newValue.slice(0,3) +  ") " + newValue.slice(3, 6) + "-" + newValue.slice(6,10);
+        document.getElementById("phone").value = newValue;
+    }
+
+</script>
 
 </html>
