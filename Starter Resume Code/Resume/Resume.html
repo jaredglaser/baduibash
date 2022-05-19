@@ -50,7 +50,7 @@
                         <br />
                         <br />
                         <label for="date">Date of Birth:</label>
-                        <input  id="date" name="date"  />
+                        <input  id="date" name="date" onkeydown="return false" />
                     </div>
                     <div id="resume-email">
                         <br />
@@ -92,7 +92,8 @@
                         <br />
                         <label for="company-location">Company Location:</label>
                         <br />
-                        <input type="text" id="company-location" name="company-location" />
+                        <input type="text" id="company-location" name="company-location" onkeydown="return false"/>
+                        <button id="setAddressCompany">Set Address</button>
                         <br />
                         <label for="job-description">Role Description</label>
                         <br />

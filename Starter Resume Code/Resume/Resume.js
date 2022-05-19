@@ -5,6 +5,7 @@ var currentID = 'resume-name-box';
 var slot1 = false;
 var intervalId;
 var date = ["00", "00", "0000"];
+var isCompanyAddress = false;
 
 
 
@@ -63,9 +64,12 @@ function reverseGeocode(coords) {
     .then(function (response) {
       return response.json();
     }).then(function (json) {
-      
+      if(isCompanyAddress){
+        $('#company-location').val(json.display_name);
+      }
+      else{
       $('#addressinput').val(json.display_name);
-     
+      }
     });
 }
 $(document).ready(function () {
@@ -97,8 +101,16 @@ $(document).ready(function () {
 
     showUIElement('map-box');
     showUIElement('map');
+    isCompanyAddress = false;
     evt.preventDefault();
 
+  });
+
+  $('#setAddressCompany').on('click', function (evt) {
+    showUIElement('map-box');
+    showUIElement('map');
+    isCompanyAddress = true;
+    evt.preventDefault();
   });
   //$('addressinput').on('click', function (evt) {
  //   evt.preventDefault();
