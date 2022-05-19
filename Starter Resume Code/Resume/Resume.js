@@ -1,6 +1,22 @@
 
-const listOfUIElements = ["slider","map"];
+const listOfUIElements = ["slider","map","resume-name-box","resume-dob-box","resume-email-box","resume-phone-box","map-box",];
 var map;
+var currentID = 'resume-name-box';
+
+function toggle_visibility(id) {
+    showUIElement(id);
+}
+
+function showValue(newValue) {
+    newValue = newValue.padStart(10, "0");
+    newValue = "(" + newValue.slice(0, 3) + ") " + newValue.slice(3, 6) + "-" + newValue.slice(6, 10);
+    document.getElementById("phone").value = newValue;
+}
+
+function changeJobTitle(job) {
+    document.getElementById("job-title").value = job;
+}
+
 function showUIElement(toShow){
     //first hide all elements
     hideUIElements();
@@ -53,13 +69,15 @@ function reverseGeocode(coords) {
         reverseGeocode(hdms);
       });
       $('#setAddress').on('click', function(evt) {
+
+        showUIElement('map-box');
         evt.preventDefault();
-        showUIElement('map');
         
       })
       $('addressinput').on('click', function(evt){
         evt.preventDefault();
       })
+     
      
     
  /*$(map).on('click', function (evt) {
@@ -72,3 +90,5 @@ function reverseGeocode(coords) {
     reverseGeocode(coord);
   });*/
 });
+
+

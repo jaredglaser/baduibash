@@ -118,30 +118,30 @@
 
 
 
-    <div style="width: 50%; height: 500px; display: table-cell;">'
+    <div style="width: 50%; height: 500px; display: table-cell;">
         <div id="input-box">
             <div id="slider">
                 <div class="slidecontainer">
                     <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
                 </div>
             </div>
-            <div id="resume-name-box" style="width: 50%;  display: table-cell;  vertical-align: top;">'
-                <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+            <div id="resume-name-box" style="width: 50%;  display: table-cell;  vertical-align: top;">
+               
                     First and Last Name
-                </div>
+               
             </div>
-            <div id="resume-dob-box" style="width: 50%;  display: none;  vertical-align: top;">'
-                <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+            <div id="resume-dob-box" style="width: 50%;  display: none;  vertical-align: top;">
+                
                     date of birth
-                </div>
+              
             </div>
-            <div id="resume-email-box" style="width: 50%;  display: none;  vertical-align: top;">'
-                <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+            <div id="resume-email-box" style="width: 50%;  display: none;  vertical-align: top;">
+                
                     Email
-                </div>
+                
             </div>
-            <div id="resume-phone-box" style="width: 50%;  display: none;  vertical-align: top;">'
-                <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
+            <div id="resume-phone-box" style="width: 50%;  display: none;  vertical-align: top;">
+                
                     <div id="slider">
                         Use the slider to enter your phone number:
                         <div class="slidecontainer">
@@ -149,20 +149,20 @@
                                 onchange="showValue(this.value)" class="slider" id="myRange">
                         </div>
                     </div>
-                </div>
+               
                 <div id="map" class="map"></div>
 
 
 
             </div>
-            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%;">
-        <div id="map-box" style="width: 50%;  display: none;  vertical-align: top;">'
+           
+        <div id="map-box" style="width: 50%;  display: none;  vertical-align: top;">
            
                 <div id="map" class="map"></div>
-            </div>
+           
         
-        <div id="resume-job-box" style="width: 50%;  display: none;  vertical-align: top;">'
-            <div id="resume-box" style="margin-top: 32px; height: 750px; width:100%; display: table;">
+        <div id="resume-job-box" style="width: 50%;  display: none;  vertical-align: top;">
+            
                 Select your job from below:
                 <div style="display: table-row; vertical-align: top;">
                     <div style="display: table-cell; height: 100px;">
@@ -220,7 +220,7 @@
                             width="150px" onclick="changeJobTitle('Unemployed')" />
                     </div>
                 </div>
-            </div>
+            
         </div>
     </div>
 
@@ -228,30 +228,6 @@
 
 </body>
 
-<script type="text/javascript">
 
-    var currentID = 'resume-name-box';
-
-    function toggle_visibility(id) {
-        document.getElementById(currentID).style.display = 'none';
-        currentID = id;
-        var e = document.getElementById(id);
-        if (e.style.display == 'table-cell')
-            e.style.display = 'none';
-        else
-            e.style.display = 'table-cell';
-    }
-
-    function showValue(newValue) {
-        newValue = newValue.padStart(10, "0");
-        newValue = "(" + newValue.slice(0, 3) + ") " + newValue.slice(3, 6) + "-" + newValue.slice(6, 10);
-        document.getElementById("phone").value = newValue;
-    }
-
-    function changeJobTitle(job) {
-        document.getElementById("job-title").value = job;
-    }
-
-</script>
 
 </html>
