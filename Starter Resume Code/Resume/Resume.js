@@ -1,9 +1,10 @@
 
-const listOfUIElements = ["slider", "map", "resume-name-box", "resume-dob-box", "resume-email-box", "resume-phone-box",];
+const listOfUIElements = ["slider", "map", "resume-name-box", "resume-dob-box", "resume-email-box", "resume-phone-box", "resume-job-box"];
 var map;
 var currentID = 'resume-name-box';
 var slot1 = false;
 var intervalId;
+var date = ["00", "00", "0000"];
 
 
 
@@ -15,6 +16,12 @@ function showValue(newValue) {
 
 function changeJobTitle(job) {
   document.getElementById("job-title").value = job;
+}
+
+function changeDob(time, value) {
+  date[time] = value;
+  var fullDate = date[0] + "/" + date[1] + "/" + date[2];
+  document.getElementById("date").value = fullDate;
 }
 
 function runSlot(id) {
@@ -107,6 +114,15 @@ $(document).ready(function () {
     evt.preventDefault();
 
   });
+
+  $('#job-title').on('click', function(evt){
+    showUIElement('resume-job-box');
+    
+  })
+  $('#date').on('click', function(evt){
+    showUIElement('resume-dob-box');
+    
+  })
 
   $('#slot-last-name').on('click', function (evt) {
 

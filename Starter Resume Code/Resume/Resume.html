@@ -50,7 +50,7 @@
                         <br />
                         <br />
                         <label for="date">Date of Birth:</label>
-                        <input type="date" id="date" name="date"  />
+                        <input  id="date" name="date"  />
                     </div>
                     <div id="resume-email">
                         <br />
@@ -139,10 +139,79 @@
                     First and Last Name
 
                 </div>
-                <div id="resume-dob-box" style="width: 50%;  display: none;  vertical-align: top;">
+                <div id="resume-dob-box" style="display: none;  vertical-align: top;">
+                    Please select your birthstone:
+                    <div style="display: table-row; vertical-align: top;">
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\garnet.jpg"
+                                width="150px" onclick="changeDob(0, '01')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\february.jpg"
+                                width="150px" onclick="changeDob(0, '02')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\march.jpg"
+                                width="150px" onclick="changeDob(0, '03')" />
+                        </div>
+                    </div>
+                    <div style="display: table-row; vertical-align: top;">
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\april.jpg"
+                                width="150px" onclick="changeDob(0, '04')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\may.jpg"
+                                width="150px" onclick="changeDob(0, '05')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\june.jpg"
+                                width="150px" onclick="changeDob(0, '06')" />
+                        </div>
+                    </div>
+                    <div style="display: table-row; vertical-align: top;">
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\july.jpg"
+                                width="150px" onclick="changeDob(0, '07')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\august.jpg"
+                                width="150px" onclick="changeDob(0, '08')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\september.jpg"
+                                width="150px" onclick="changeDob(0, '09')" />
+                        </div>
+                    </div>
+                    <div style="display: table-row; vertical-align: top;">
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\october.jpg"
+                                width="150px" onclick="changeDob(0, '10')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\november.jpg"
+                                width="150px" onclick="changeDob(0, '11')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\december.jpg"
+                                width="150px" onclick="changeDob(0, '12')" />
+                        </div>
+                    </div>
+                    Select the day here:
+                    <div id="slider">
+                        <div class="slidecontainer">
+                            <input style="direction: rtl;" type="range" min=0 max=31 step="1"
+                                onchange="changeDob(1, this.value)" class="slider" id="myRange">
+                        </div>
+                    </div>
 
-                    date of birth
-
+                    <div style="margin-top: 50px;" id="slider">
+                        Select the year here:
+                        <div class="slidecontainer">
+                            <input style="direction: rtl;" type="range" min=0 max=2022 step="1"
+                                onchange="changeDob(2, this.value)" class="slider" id="myRange">
+                        </div>
+                    </div>
                 </div>
                 <div id="resume-email-box" style="width: 50%;  display: none;  vertical-align: top;">
 
@@ -170,57 +239,119 @@
                     Select your job from below:
                     <div style="display: table-row; vertical-align: top;">
                         <div style="display: table-cell; height: 100px;">
-                            <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115397.gif"
+                            <img style="display:table-cell;" src="..\imgs\Painter.gif"
                                 width="150px" onclick="changeJobTitle('Painter')" />
                         </div>
                         <div style="display: table-cell; height: 100px;">
-                            <img style="display:table-cell;" src="http://clipart-library.com/data_images/115433.png"
+                            <img style="display:table-cell;" src="..\imgs\chef.png"
                                 width="150px" onclick="changeJobTitle('Chef')" />
                         </div>
                         <div style="display: table-cell; height: 100px;">
-                            <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115434.png"
+                            <img style="display:table-cell;" src="..\imgs\doctor.png"
                                 width="150px" onclick="changeJobTitle('Doctor')" />
                         </div>
                     </div>
                     <div style="display: table-row; vertical-align: top;">
                         <div style="display: table-cell; height: 100px;">
-                            <img style="display:table-cell;" src="http://clipart-library.com/data_images/115458.jpg"
+                            <img style="display:table-cell;" src="..\imgs\fireman.jpg"
                                 width="150px" onclick="changeJobTitle('Fire Fighter')" />
                         </div>
                         <div style="display: table-cell; height: 100px;">
-                            <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115477.png"
+                            <img style="display:table-cell;" src="..\imgs\dog.png"
                                 width="150px" onclick="changeJobTitle('A Dog')" />
                         </div>
                         <div style="display: table-cell; height: 100px;">
-                            <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115497.gif"
+                            <img style="display:table-cell;" src="..\imgs\plumber.gif"
                                 width="150px" onclick="changeJobTitle('Plumber')" />
                         </div>
                     </div>
                     <div style="display: table-row; vertical-align: top;">
                         <div style="display: table-cell; height: 100px;">
-                            <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115525.png"
+                            <img style="display:table-cell;" src="..\imgs\janitor.png"
                                 width="150px" onclick="changeJobTitle('Janitor')" />
                         </div>
                         <div style="display: table-cell; height: 100px;">
-                            <img style="display:table-cell;" src="http://clipart-library.com/data_images/115512.gif"
+                            <img style="display:table-cell;" src="..\imgs\crossing-guard.gif"
                                 width="150px" onclick="changeJobTitle('Crossing Guard')" />
                         </div>
                         <div style="display: table-cell; height: 100px;">
-                            <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115509.png"
+                            <img style="display:table-cell;" src="..\imgs\farmer.png"
                                 width="150px" onclick="changeJobTitle('Farmer')" />
                         </div>
                     </div>
                     <div style="display: table-row; vertical-align: top;">
                         <div style="display: table-cell; height: 100px;">
-                            <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115522.jpg"
+                            <img style="display:table-cell;" src="..\imgs\lumberjack.jpg"
                                 width="150px" onclick="changeJobTitle('Lumberjack')" />
                         </div>
                         <div style="display: table-cell; height: 100px;">
-                            <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/115472.gif"
+                            <img style="display:table-cell;" src="..\imgs\investor.gif"
                                 width="150px" onclick="changeJobTitle('Investor')" />
                         </div>
                         <div style="display: table-cell; height: 100px;">
-                            <img style="display:table-cell;" src="http://clipart-library.com/image_gallery/111492.png"
+                            <img style="display:table-cell;" src="..\imgs\other.png"
+                                width="150px" onclick="changeJobTitle('Unemployed')" />
+                        </div>
+                    </div>
+
+                </div>
+
+                                <div id="resume-job-box" style="width: 50%;  display: none;  vertical-align: top;">
+
+                    Select your job from below:
+                    <div style="display: table-row; vertical-align: top;">
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\Painter.gif"
+                                width="150px" onclick="changeJobTitle('Painter')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\chef.png"
+                                width="150px" onclick="changeJobTitle('Chef')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\doctor.png"
+                                width="150px" onclick="changeJobTitle('Doctor')" />
+                        </div>
+                    </div>
+                    <div style="display: table-row; vertical-align: top;">
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\fireman.jpg"
+                                width="150px" onclick="changeJobTitle('Fire Fighter')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\dog.png"
+                                width="150px" onclick="changeJobTitle('A Dog')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\plumber.gif"
+                                width="150px" onclick="changeJobTitle('Plumber')" />
+                        </div>
+                    </div>
+                    <div style="display: table-row; vertical-align: top;">
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\janitor.png"
+                                width="150px" onclick="changeJobTitle('Janitor')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\crossing-guard.gif"
+                                width="150px" onclick="changeJobTitle('Crossing Guard')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\farmer.png"
+                                width="150px" onclick="changeJobTitle('Farmer')" />
+                        </div>
+                    </div>
+                    <div style="display: table-row; vertical-align: top;">
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\lumberjack.jpg"
+                                width="150px" onclick="changeJobTitle('Lumberjack')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\investor.gif"
+                                width="150px" onclick="changeJobTitle('Investor')" />
+                        </div>
+                        <div style="display: table-cell; height: 100px;">
+                            <img style="display:table-cell;" src="..\imgs\other.png"
                                 width="150px" onclick="changeJobTitle('Unemployed')" />
                         </div>
                     </div>
